@@ -7,7 +7,8 @@ import { navigate, type AppRoute } from '../navigation'
 const unavailable = 'Not available in supplied data.'
 const chartColors = ['#d69a4c', '#e16b61', '#63b8d2', '#7eb8e6', '#78c99c']
 
-export function EconomicImpactPage({ route: _route }: { route: AppRoute }) {
+export function EconomicImpactPage({ route }: { route: AppRoute }) {
+  void route
   const { data, isDemoLoaded, loadDemoData, activeInvestigationId, setActiveInvestigation } = useForgeSight()
   if (!isDemoLoaded || !data) return <EconomicEmptyState loadDemoData={loadDemoData} />
 
