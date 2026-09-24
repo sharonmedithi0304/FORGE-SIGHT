@@ -1,2 +1,57 @@
-html { background: #101315; }
-body { margin: 0; min-width: 320px; }
+@import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Space+Grotesk:wght@400;500;600;700&display=swap');
+
+:root {
+	--background: #0b1012;
+	--surface: #131a1d;
+	--surface-elevated: #1a2327;
+	--border: #2a383d;
+	--text-primary: #edf3f1;
+	--text-secondary: #a9b8b6;
+	--muted: #71817f;
+	--accent: #63b8d2;
+	--success: #78c99c;
+	--warning: #e0a24e;
+	--critical: #e16b61;
+	--info: #7eb8e6;
+
+	/* Existing page rules use these shorter aliases. */
+	--bg: var(--background);
+	--surface-2: var(--surface-elevated);
+	--line: var(--border);
+	--line-soft: #1f2a2e;
+	--text: var(--text-primary);
+	--dim: #526260;
+	--amber: var(--warning);
+	--amber-soft: rgba(224, 162, 78, .12);
+	--green: var(--success);
+	--font-display: 'Space Grotesk', 'Segoe UI', sans-serif;
+	--font-mono: 'DM Mono', 'Cascadia Mono', monospace;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html {
+	min-width: 320px;
+	background: var(--background);
+	color-scheme: dark;
+	overflow-x: hidden;
+}
+
+body {
+	min-width: 320px;
+	min-height: 100vh;
+	margin: 0;
+	overflow-x: hidden;
+	background: var(--background);
+	color: var(--text-primary);
+	font-family: var(--font-display);
+	font-size: 14px;
+	line-height: 1.5;
+	-webkit-font-smoothing: antialiased;
+}
+
+button, input, select, textarea { font: inherit; }
+button { color: inherit; }
+button:focus-visible, input:focus-visible, select:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+img, svg { max-width: 100%; }
+h1, h2, h3, p { overflow-wrap: anywhere; }
