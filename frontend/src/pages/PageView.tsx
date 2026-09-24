@@ -9,6 +9,7 @@ import { InvestigationCenterPage } from './InvestigationCenterPage'
 import { ProcessIntelligencePage, ProductionFlowPage, BottleneckAnalysisPage, ProcessDetailPage } from './process/ProcessPages'
 import { EconomicImpactPage } from './EconomicImpactPage'
 import { ProfitabilitySimulatorPage } from './ProfitabilitySimulatorPage'
+import { DecisionCenterPage } from './DecisionCenterPage'
 
 type Page = { path: PagePath; eyebrow: string; title: string; description: string; icon: LucideIcon; next: string }
 export function PageView({ page, route }: { page: Page; route: AppRoute }) {
@@ -21,6 +22,7 @@ export function PageView({ page, route }: { page: Page; route: AppRoute }) {
 	if (route.path === 'bottleneck-analysis') return <BottleneckAnalysisPage route={route} />
 	if (route.path === 'economic-impact') return <EconomicImpactPage route={route} />
 	if (route.path === 'profitability-simulator') return <ProfitabilitySimulatorPage route={route} />
+	if (route.path === 'decision-center') return <DecisionCenterPage route={route} />
 	if (route.path === 'variable-detail' || route.path === 'stage-detail') return <ProcessDetailPage route={route} />
 	if (route.path === 'unit-detail' || route.path === 'uncertainty-detail' || route.path === 'novel-pattern-detail' || route.path === 'defect-detail') return <QualityDetailPage route={route} />
 	const Icon = page.icon
