@@ -12,10 +12,12 @@ import { EconomicImpactPage } from './EconomicImpactPage'
 import { ProfitabilitySimulatorPage } from './ProfitabilitySimulatorPage'
 import { DecisionCenterPage } from './DecisionCenterPage'
 import { DataEvidencePage } from './DataEvidencePage'
+import { CommandCenterPage } from './CommandCenterPage'
 
 type Page = { path: PagePath; eyebrow: string; title: string; description: string; icon: LucideIcon; next: string }
 export function PageView({ page, route }: { page: Page; route: AppRoute }) {
 	const { data, isDemoLoaded, loadDemoData } = useForgeSight()
+	if (route.path === 'command-center') return <CommandCenterPage route={route} />
 	if (route.path === 'quality-intelligence') return <QualityIntelligencePage route={route} />
 	if (route.path === 'defect-explorer') return <DefectExplorerPage route={route} />
 	if (route.path === 'investigation-center') return <InvestigationCenterPage route={route} />
