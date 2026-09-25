@@ -48,11 +48,12 @@ export function calculateEconomicImpact(economics?: EconomicData, batch?: Batch,
     { key: 'revenue', label: 'Revenue Exposure', amount: revenue, displayValue: revenue === null ? unavailable : currency(revenue), status: revenue === null ? 'PARTIAL' : 'ESTIMATED', basis: 'Supplied revenue exposure estimate', formula: revenue === null ? unavailable : 'Supplied economic assumption' },
   ]
   const complete = rows.every((row) => row.amount !== null)
-  const total = complete ? rows.reduce((sum, row) => sum + (row.amount ?? 0), 0) : null
+  // Components are retained individually; supplied assumptions do not establish that they are non-overlapping.
+  const total = null
   return {
     rows,
     total,
-    totalDisplay: total === null ? unavailable : currency(total),
+    totalDisplay: unavailable,
     isPartial: !complete,
     missingAssumptions,
     formulas: rows.map((row) => ({ label: row.label, formula: row.formula, value: row.displayValue })),
